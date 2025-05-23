@@ -13,30 +13,7 @@ export default function HomePage() {
     backgroundPosition: 'center' }}
     >
       {/* Hero Section */}
-      {/* <div className="relative overflow-hidden bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500">
-        <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
-        <div className="container relative pt-20 pb-24 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Create Stunning Color Palettes in Seconds</h1>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
-            Experience the power of AI-driven palette generation. With just a click, transform your ideas into vibrant
-            color schemes effortlessly.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/palette-generator">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90">
-                Start Generating
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/image-picker">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Extract from Image
-                <ImageIcon className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div> */}
+      
 
       <div className={styles.main}>
         <div className={styles.heroSection}>

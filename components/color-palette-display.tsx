@@ -21,7 +21,7 @@ export default function ColorPaletteDisplay({ colors, onColorClick, className }:
 
   if (!colors.length) {
     return (
-      <div className={cn("rounded-lg border border-dashed p-8 text-center", className)}>
+      <div className={cn("rounded-lg border border-dashed p-4 md:p-8 text-center", className)}>
         <p className="text-muted-foreground">No colors in palette yet</p>
       </div>
     )
@@ -37,14 +37,14 @@ export default function ColorPaletteDisplay({ colors, onColorClick, className }:
           onClick={() => onColorClick?.(color, index)}
         >
           <button
-            className="absolute bottom-2 right-2 bg-white/10 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute bottom-1 md:bottom-2 right-1 md:right-2 right-2 bg-white/10 backdrop-blur-sm p-1 md:p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             onClick={(e) => {
               e.stopPropagation()
               copyToClipboard(color, index)
             }}
             aria-label={`Copy color ${color}`}
           >
-            {copiedIndex === index ? <Check className="h-4 w-4 text-white" /> : <Copy className="h-4 w-4 text-white" />}
+            {copiedIndex === index ? <Check className="h-3 w-3 md:h-4 md:w-4 text-white" /> : <Copy className="h-3 w-3 md:h-4 md:w-4 text-white" />}
           </button>
           <div className="absolute bottom-2 left-2 text-xs font-mono bg-black/20 text-white px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
             {color}

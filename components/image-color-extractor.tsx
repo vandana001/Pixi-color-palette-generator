@@ -333,21 +333,21 @@ export default function ImageColorExtractor({ onColorsExtracted, maxColors = 5 }
     <div className="space-y-4">
       <div
         {...getRootProps()}
-        className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors
+        className={`border-2 border-dashed rounded-lg p-4 md:p-6 text-center cursor-pointer transition-colors
           ${isDragActive ? "border-primary bg-primary/5" : "border-muted-foreground/20 hover:border-muted-foreground/50"}`}
       >
         <input {...getInputProps()} />
 
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <Upload className="h-8 w-8 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col items-center justify-center space-y-1 md:space-y-2">
+          <Upload className="h-6 w-6 md:h-8 md:w-8 text-muted-foreground" />
+          <p className="text-xs md:text-sm text-muted-foreground">
             {isDragActive ? "Drop the image here" : "Drag & drop an image here, or click to select"}
           </p>
         </div>
       </div>
 
       {image && (
-        <div className="relative rounded-lg overflow-hidden">
+        <div className="relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 p-2 md:p-3">
           <img
             src={image || "/placeholder.svg"}
             alt="Uploaded image"
@@ -356,7 +356,7 @@ export default function ImageColorExtractor({ onColorsExtracted, maxColors = 5 }
 
           {extracting && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-              <Loader2 className="h-8 w-8 text-white animate-spin" />
+              <Loader2 className="h-6 w-6 md:h-8 md:w-8 text-white animate-spin" />
             </div>
           )}
         </div>

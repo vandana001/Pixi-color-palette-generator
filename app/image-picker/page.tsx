@@ -55,39 +55,39 @@ export default function ImagePickerPage() {
   }
 
   return (
-    <div className="container py-8 space-y-8"  >
+    <div className="container py-4 md:py-8 px-4 md:px-8 space-y-6 md:space-y-8"  >
       <div className="space-y-2" style={{display:'flex', justifyContent:'center',alignItems:'center', flexDirection:'column', gap:'10px'}}>
-        <h1 className="text-3xl font-bold">Image Picker</h1>
-        <p className="text-muted-foreground">Upload an image to extract a color palette</p>
+        <h1 className="text-2xl md:text-3xl font-bold">Image Picker</h1>
+        <p className="text-sm md:text-base text-muted-foreground">Upload an image to extract a color palette</p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 " style={{background:'aliceblue', border:'.5px solid #dbdbdb', padding:'2rem', borderRadius:'20px'}}>
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Upload Image</h2>
+      <div className="grid gap-6 md:gap-8 md:grid-cols-2" style={{background:'aliceblue', border:'.5px solid #dbdbdb', borderRadius:'20px'}}>
+        <div className="space-y-4">
+          <h2 className="text-lg md:text-xl font-semibold mb-2 md:mb-4">Upload Image</h2>
           <ImageColorExtractor onColorsExtracted={handleColorsExtracted} maxColors={5} />
 
           {colors.length > 0 && (
-            <div className="mt-4 text-sm text-muted-foreground">
+            <div className="mt-3 text-xs md:text-sm text-muted-foreground">
               <p>The algorithm extracts the most dominant and representative colors from your image.</p>
               <p className="mt-1">For best results, use images with clear, distinct color areas.</p>
             </div>
           )}
         </div>
 
-        <div>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Color Palette</h2>
+        <div className="spcae-y-4">
+          <div className="flex justify-between items-center  mb-2 md:mb-4">
+            <h2 className="text-lg md:text-xl font-semibold">Color Palette</h2>
 
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                  <Button variant="ghost" size="sm" className="h-7 w-7 md:h-8 md:w-8 p-0">
                     <Info className="h-4 w-4" />
                     <span className="sr-only">Color extraction info</span>
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="max-w-xs">
+                  <p className="max-w-xs text-xs md:text-sm">
                     Colors are extracted using perceptual clustering to find the most representative colors in your
                     image.
                   </p>
@@ -114,18 +114,18 @@ export default function ImagePickerPage() {
                 <Button variant="outline" size="sm" onClick={copyPalette}>
                   {copied ? (
                     <>
-                      <Check className="h-4 w-4 mr-2" />
+                      <Check className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Copied!
                     </>
                   ) : (
                     <>
-                      <Copy className="h-4 w-4 mr-2" />
+                      <Copy className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Copy Palette
                     </>
                   )}
                 </Button>
                 <Button variant="outline" size="sm" onClick={downloadPalette}>
-                  <Download className="h-4 w-4 mr-2" />
+                  <Download className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                   Download CSS
                 </Button>
               </div>
@@ -137,9 +137,9 @@ export default function ImagePickerPage() {
       {/* Instructions */ }
   {
     colors.length > 0 && (
-      <div className="bg-muted/30 p-4 rounded-lg">
-        <h3 className="font-medium mb-2">How to use this palette:</h3>
-        <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+      <div className="bg-muted/30 p-3 md:p-4 rounded-lg text-xs md:text-sm">
+        <h3 className="font-medium mb-1 md:mb-2">How to use this palette:</h3>
+        <ul className="list-disc pl-5 space-y-0.5 md:space-y-1 text-muted-foreground">
           <li>Click on any color to copy its hex code</li>
           <li>Use "Copy Palette" to copy all colors as a comma-separated list</li>
           <li>Download as CSS variables with the "Download CSS" button</li>

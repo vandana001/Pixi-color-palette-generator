@@ -81,23 +81,23 @@ export default function PaletteGenerator() {
     <div className="flex flex-col h-full">
       {/* Controls */}
     <div className="bg-white p-3 md:p-4 border-b">
-        <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 md:gap-4">
+        <div className="flex  flex-wrap gap-3 md:gap-4">
           <div className="flex flex-wrap gap-2">
-            <Button onClick={handleRegeneratePalette} className="flex items-center gap-2" variant="outline" size="sm">
-              <RefreshCw size={16} />
+            <Button onClick={handleRegeneratePalette} className="flex items-center gap-1 md:gap-2 h-8 md:h-10 text-xs md:text-sm" variant="outline" size="sm">
+              <RefreshCw size={14} />
               <span>Generate</span>
-              <span className="hidden sm:inline text-xs text-muted-foreground ml-1">(Space)</span>
+              <span className="hidden  sm:inline text-xs text-muted-foreground ml-1">(Space)</span>
             </Button>
 
-            <Button onClick={handleNewPalette} className="flex items-center gap-2" variant="outline" size="sm">
-              <Shuffle size={16} />
+            <Button onClick={handleNewPalette} className="flex items-center gap-1 md:gap-2 h-8 md:h-10 text-xs md:text-sm" variant="outline" size="sm">
+              <Shuffle size={14} className="md:w-4 md:h-4" />
               <span>New Palette</span>
             </Button>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 md:gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Colors:</span>
+            <div className="flex items-center gap-1 md:gap-2">
+              <span className="text-xs md:text-sm text-muted-foreground">Colors:</span>
               <Select
                 value={count.toString()}
                 onValueChange={(value) => {
@@ -105,7 +105,7 @@ export default function PaletteGenerator() {
                   addAction("change_count", { count: Number.parseInt(value) })
                 }}
               >
-                <SelectTrigger className="w-16">
+                <SelectTrigger className="w-14 md:w-16 h-8 md:h-9 text-xs md:text-sm">
                   <SelectValue placeholder="5" />
                 </SelectTrigger>
                 <SelectContent>
@@ -118,10 +118,10 @@ export default function PaletteGenerator() {
               </Select>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Scheme:</span>
+            <div className="flex items-center gap-1 md:gap-2">
+              <span className="text-xs md:text-sm text-muted-foreground">Scheme:</span>
               <Select value={scheme} onValueChange={handleUpdateScheme}>
-                <SelectTrigger className="w-32 md:w-36">
+                <SelectTrigger className="w-28 md:w-36 h-8 md:h-9 text-xs md:text-sm">
                   <SelectValue placeholder="Random" />
                 </SelectTrigger>
                 <SelectContent>
@@ -139,18 +139,18 @@ export default function PaletteGenerator() {
       </div>
 
       {/* Color Palette */}
-      <div className="flex flex-1 min-h-[50vh]">
+      <div className="flex flex-1 min-h-[40vh] md:min-h-[5-vh] flex-wrap md:flex-nowrap">
         {colors.map((color, index) => (
           <div
             key={`${color.hex}-${index}`}
-            className="flex-1 flex flex-col relative group"
+            className="flex-1 flex flex-col relative group min-w-[20%] md:min-w-0 h-24 md:h-auto"
             style={{ backgroundColor: color.hex }}
           >
             {/* Color Info */}
-            <div className="mt-auto p-4 bg-black/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="flex flex-col gap-2">
+            <div className="mt-auto p-2 md:p-4 bg-black/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex flex-col gap-1 md:gap-2">
                 <div className="flex justify-between items-center">
-                  <span className="font-mono text-lg font-bold text-white drop-shadow-sm">
+                  <span className="font-mono text-xs md:text-lg font-bold text-white drop-shadow-sm">
                     {color.hex.toUpperCase()}
                   </span>
                   {/* <button
@@ -167,7 +167,7 @@ export default function PaletteGenerator() {
                 </div>
 
                 {showColorNames && (
-                  <span className="text-sm text-white/90 drop-shadow-sm">{getColorName(color.hex)}</span>
+                  <span className="text-xs md:text-sm text-white/90 drop-shadow-sm">{getColorName(color.hex)}</span>
                 )}
 
                 {/* <button
@@ -214,8 +214,8 @@ export default function PaletteGenerator() {
       </div>
 
       {/* Instructions */}
-      <div className="bg-white p-4 border-t text-center text-sm text-muted-foreground">
-        Press <kbd className="px-2 py-1 bg-gray-100 rounded border">Space</kbd> to generate a new palette. Click a color
+      <div className="bg-white p-2 md:p-4 border-t text-center text-sm text-muted-foreground">
+        Press <kbd className="px-1 md:px-2 py-0.5 bg-gray-100 rounded border">Space</kbd> to generate a new palette. Click a color
         to edit it.
       </div>
 
