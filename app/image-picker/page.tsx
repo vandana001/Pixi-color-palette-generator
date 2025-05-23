@@ -62,7 +62,7 @@ export default function ImagePickerPage() {
       </div>
 
       <div className="grid gap-6 md:gap-8 md:grid-cols-2" style={{background:'aliceblue', border:'.5px solid #dbdbdb', borderRadius:'20px'}}>
-        <div className="space-y-4">
+        <div className="space-y-4" style={{padding:'2rem'}}>
           <h2 className="text-lg md:text-xl font-semibold mb-2 md:mb-4">Upload Image</h2>
           <ImageColorExtractor onColorsExtracted={handleColorsExtracted} maxColors={5} />
 
@@ -74,7 +74,7 @@ export default function ImagePickerPage() {
           )}
         </div>
 
-        <div className="spcae-y-4">
+        <div className="spcae-y-4" style={{padding:'2rem'}}>
           <div className="flex justify-between items-center  mb-2 md:mb-4">
             <h2 className="text-lg md:text-xl font-semibold">Color Palette</h2>
 
