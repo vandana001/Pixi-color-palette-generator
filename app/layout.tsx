@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import MobileNav from "@/components/mobile-nav";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -82,6 +83,7 @@ export default function RootLayout({
           </header>
 
           <main>{children}</main>
+           <Analytics />
         </ThemeProvider>
       </body>
     </html>
